@@ -12,70 +12,133 @@
 
   <!-- Cabecalho do Site -->
   <header class="cabecalho">
-    <h1>Preservação do Patrimônio Histórico Local - Parnamirim</h1>
-    <p>Projeto Integrador - Preservação do Patrimônio Histórico e Cultural</p>
+
+    <nav class="navbar navbar-expand-lg navbarp">
+      <div class="container">
+
+        <a class="navbar-brand logo-navbar" href="/">
+          Potibala's
+        </a>
+
+        <button 
+          class="navbar-toggler" 
+          type="button" 
+          data-bs-toggle="collapse" 
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" 
+          aria-expanded="false" 
+          aria-label="Abrir menu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse ms-auto" id="navbarSupportedContent">
+
+          <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
+
+            <li class="nav-item">
+              <a class="nav-link active" href="/">Início</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#patrimonios">Patrimônios</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="/quiz">Quiz</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#sobre">Sobre o projeto</a>
+            </li>
+
+          </ul>
+
+        </div>
+      </div>
+    </nav>
+
+
+    <div class="hero">
+
+      <div class="hero-conteudo">
+
+        <span class="hero-tag">PATRIMÔNIO • HISTÓRIA • CULTURA</span>
+
+        <h1>
+          Preservação do Patrimônio
+          <br>
+          Histórico de Parnamirim
+        </h1>
+
+        <p>
+          Conheça a história, os patrimônios e a importância cultural
+          de Parnamirim para o Rio Grande do Norte.
+        </p>
+
+      </div>
+
+    </div>
+
   </header>
 
   <main class="container-b">
     
     <!-- Secao de Patrimonios Historicos -->
-    <section class="secao">
+  <section class="secao" id="patrimonios">
+
+    <div class="titulo-secao">
+      <span>PATRIMÔNIOS</span>
       <h2>Patrimônios Históricos de Parnamirim</h2>
-      
-      <!-- Card 1: Campo dos Namorados / Campo de Parnamirim -->
-      <article class="card-monumento">
-        <h3>Base Aérea e Trampolim da Vitória</h3>
-        <p class="texto-historico">
-          Durante a Segunda Guerra Mundial, Parnamirim abrigou a maior base aérea dos EUA fora do seu território. A região ficou conhecida como "Trampolim da Vitória" pela posição estratégica no Atlântico.
-        </p>
-        <div class="galeria-fotos">
-          <div class="foto-item">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQq8qlBoUojyDyYhIeYy0INzzsHdck1o_6GWbxS-NDgTyA-FZoQOsBUDZk&s=10" alt="Base Aérea histórica">
-            <span>Anos 1940 (Segunda Guerra)</span>
-          </div>
-          <div class="foto-item">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCzrl0i3iAePm6yJJE1MPLFCpY3IMteTGY4LstIB15NQ&s=10" alt="Base Aérea atualmente">
-            <span>Dias Atuais</span>
-          </div>
-        </div>
-      </article>
+      <p>
+        Conheça alguns dos locais que fazem parte da história da cidade.
+      </p>
+    </div>
 
-      <!-- Card 2: Barreira do Inferno -->
-      <article class="card-monumento">
-        <h3>Centro de Lançamento da Barreira do Inferno (CLBI)</h3>
-        <p class="texto-historico">
-          Fundado em 1965 no litoral de Parnamirim, foi a primeira base de lançamento de foguetes da América do Sul, marco da pesquisa espacial brasileira.
-        </p>
-        <div class="galeria-fotos">
-          <div class="foto-item">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Lan%C3%A7amento_do_foguete_Black_Brant%2C_na_Barreira_do_Inferno_%28RN%29.tiff/lossy-page1-250px-Lan%C3%A7amento_do_foguete_Black_Brant%2C_na_Barreira_do_Inferno_%28RN%29.tiff.jpg?utm_source=pt.wikipedia.org&utm_campaign=parser&utm_content=thumbnail" alt="Barreira do Inferno antiga">
-            <span>Lançamento nos anos 60</span>
-          </div>
-          <div class="foto-item">
-            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhkPg5bsLZb-tSNVzIPZ5bcqx7beLyzfg4UXMz5zLB7XTYLkU_4_OSabIhzRigr9R2cBFoDoWlgB63YQtkdQuB8bvb33mw0x7BjrsYXOUg79rQW338XwpW2aGgQhj3ZN97gWQapSY5WQ4x6/s1600/CLBI+-+1.png" alt="Barreira do Inferno atual">
-            <span>Entrada do CLBI</span>
-          </div>
-        </div>
-      </article>
+    <div class="row g-4">
 
-    </section>
+        {% for materia in materias %}
 
-    <!-- Secao do Quiz Cultural -->
-    <section class="secao">
-      <h2>Quiz da História Local</h2>
-      <div class="caixa-quiz">
-        <p class="pergunta"><strong>Pergunta:</strong> Por que a cidade de Parnamirim ficou conhecida internacionalmente durante a Segunda Guerra Mundial?</p>
-        
-        <div class="opcoes">
-          <button class="btn-resposta" data-correto="false">Pela produção de café e açúcar</button>
-          <button class="btn-resposta" data-correto="true">Pela base aérea americana "Trampolim da Vitória"</button>
-          <button class="btn-resposta" data-correto="false">Pela criação do primeiro porto do estado</button>
-        </div>
+            <div class="col-md-6 col-lg-4">
 
-        <div id="mensagem-feedback" class="feedback oculto"></div>
-      </div>
-    </section>
+                <article class="card-monumento">
 
+                    <img
+                        src="{{ url_for('static', filename='imagens/' + materia.imagem) }}"
+                        alt="{{ materia.titulo }}"
+                    >
+
+                    <div class="card-conteudo">
+
+                        <span class="categoria">
+                            {{ materia.categoria }}
+                        </span>
+
+                        <h3>
+                            {{ materia.titulo }}
+                        </h3>
+
+                        <p>
+                            {{ materia.texto }}
+                        </p>
+
+                        <a
+                            href="{{ url_for('main.materia', id=materia.id) }}"
+                            class="btn-card"
+                        >
+                            Saiba mais →
+                        </a>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        {% endfor %}
+
+    </div>
+
+  </section>
   </main>
 
   <script src="script.js"></script>

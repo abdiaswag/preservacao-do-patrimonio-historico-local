@@ -1,141 +1,274 @@
-/* Reset */
 * {
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
-  }
-  
-  body {
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #f4f1ea;
-    color: #2b2b2b;
-    line-height: 1.6;
-  }
-  
-  /* Header */
-  .cabecalho {
-    background-color: #1b3b5f;
-    color: #ffffff;
-    text-align: center;
-    padding: 2.5rem 1rem;
-  }
-  
-  .cabecalho h1 {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
-  }
-  
-  /* Estutura Geral */
-  .container-b {
-    max-width: 900px;
-    margin: 2rem auto;
-    padding: 0 1rem;
-  }
-  
-  .secao {
-    margin-bottom: 2.5rem;
-  }
-  
-  .secao h2 {
-    color: #1b3b5f;
-    border-bottom: 2px solid #1b3b5f;
-    padding-bottom: 0.3rem;
-    margin-bottom: 1.2rem;
-  }
-  
-  /* Cards dos Patrimonios */
-  .card-monumento {
-    background-color: #ffffff;
-    padding: 1.2rem;
-    border-radius: 6px;
-    border: 1px solid #dcdcdc;
-    margin-bottom: 1.5rem;
-  }
-  
-  .card-monumento h3 {
-    margin-bottom: 0.5rem;
-    color: #333333;
-  }
-  
-  .texto-historico {
-    margin-bottom: 1rem;
-    color: #555555;
-  }
-  
-  .galeria-fotos {
+}
+
+body {
+    margin: 0;
+    background-color: #f4f1e8;
+    color: #29251f;
+    font-family: Arial, sans-serif;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbarp {
+    background-color: #1f2a24;
+    padding: 12px 0;
+}
+
+.logo-navbar {
+    color: #e6c27a !important;
+    font-size: 1.7rem;
+    font-weight: 700;
+}
+
+.navbarp .nav-link {
+    color: #eeeeee !important;
+    margin: 0 8px;
+    transition: 0.3s;
+}
+
+.navbarp .nav-link:hover {
+    color: #e6c27a !important;
+}
+
+.navbarp .nav-link.active {
+    color: #e6c27a !important;
+}
+
+
+/* =========================
+   CABEÇALHO
+========================= */
+
+.hero {
+    min-height: 350px;
+
     display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-  
-  .foto-item {
-    flex: 1;
-    min-width: 240px;
+    align-items: center;
+    justify-content: center;
+
     text-align: center;
-  }
-  
-  .foto-item img {
+
+    background:
+        linear-gradient(
+            rgba(25, 34, 29, 0.82),
+            rgba(25, 34, 29, 0.82)
+        ),
+        url("https://images.unsplash.com/photo-1564399579883-451a5d44ec08?auto=format&fit=crop&w=1600&q=80");
+
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-conteudo {
+    max-width: 800px;
+    padding: 40px 20px;
+}
+
+.hero-tag {
+    color: #e6c27a;
+    font-size: 0.8rem;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.hero h1 {
+    margin-top: 15px;
+    color: white;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+}
+
+.hero p {
+    margin-top: 20px;
+    color: #dddddd;
+    font-size: 1.1rem;
+}
+
+
+/* =========================
+   CONTEÚDO
+========================= */
+
+.container-b {
+    max-width: 1200px;
+    margin: auto;
+    padding: 70px 20px;
+}
+
+.secao {
+    margin-bottom: 80px;
+}
+
+.titulo-secao {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.titulo-secao span {
+    color: #9b7435;
+    font-size: 0.8rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.titulo-secao h2 {
+    margin-top: 8px;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.titulo-secao p {
+    color: #666;
+}
+
+
+/* =========================
+   CARDS
+========================= */
+
+.card-monumento {
+    height: 100%;
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+
+    transition: 0.3s;
+}
+
+.card-monumento:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+
+/* IMAGEM */
+
+.card-monumento > img {
     width: 100%;
-    border-radius: 4px;
-    border: 1px solid #cccccc;
-  }
-  
-  .foto-item span {
-    font-size: 0.85rem;
-    color: #777777;
-  }
-  
-  /* Estilos do Quiz */
-  .caixa-quiz {
-    background-color: #ffffff;
-    padding: 1.5rem;
-    border-radius: 6px;
-    border: 1px solid #dcdcdc;
-  }
-  
-  .opcoes {
+    height: 180px;
+    object-fit: cover;
+}
+
+
+/* CONTEÚDO */
+
+.card-conteudo {
+    padding: 20px;
+}
+
+.categoria {
+    font-size: 0.7rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: #9b7435;
+}
+
+.card-conteudo h3 {
+    margin-top: 8px;
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.card-conteudo p {
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+
+/* BOTÃO */
+
+.btn-card {
+    display: inline-block;
+
+    margin-top: 8px;
+
+    color: #1f2a24;
+    font-weight: bold;
+    text-decoration: none;
+
+    transition: 0.3s;
+}
+
+.btn-card:hover {
+    color: #9b7435;
+}
+
+
+/* =========================
+   QUIZ
+========================= */
+
+.caixa-quiz {
+    max-width: 800px;
+    margin: auto;
+
+    padding: 35px;
+
+    background-color: white;
+
+    border-radius: 12px;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.pergunta {
+    font-size: 1.1rem;
+}
+
+.opcoes {
     display: flex;
     flex-direction: column;
-    gap: 0.8rem;
-    margin: 1rem 0;
-  }
-  
-  .btn-resposta {
-    padding: 0.8rem;
-    background-color: #eaf0f6;
-    border: 1px solid #b8c8d8;
-    border-radius: 4px;
-    font-size: 0.95rem;
-    cursor: pointer;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.btn-resposta {
+    padding: 12px 18px;
+
+    border: 1px solid #ddd;
+    border-radius: 8px;
+
+    background-color: #f8f8f8;
+
     text-align: left;
-    transition: background 0.2s;
-  }
-  
-  .btn-resposta:hover {
-    background-color: #d2e1f0;
-  }
-  
-  /* Feedback do Quiz pelo JS */
-  .feedback {
-    padding: 0.8rem;
-    border-radius: 4px;
-    font-weight: bold;
-    text-align: center;
-    margin-top: 1rem;
-  }
-  
-  .oculto {
-    display: none;
-  }
-  
-  .acerto {
-    background-color: #d4edda;
-    color: #155724;
-    border: 1px solid #c3e6cb;
-  }
-  
-  .erro {
-    background-color: #f8d7da;
-    color: #721c24;
-    border: 1px solid #f5c6cb;
-  }
+
+    transition: 0.3s;
+}
+
+.btn-resposta:hover {
+    background-color: #e6c27a;
+    border-color: #e6c27a;
+}
+
+
+/* =========================
+   RESPONSIVIDADE
+========================= */
+
+@media (max-width: 768px) {
+
+    .hero {
+        min-height: 300px;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .container-b {
+        padding: 50px 15px;
+    }
+
+    .card-monumento > img {
+        height: 200px;
+    }
+
+}
