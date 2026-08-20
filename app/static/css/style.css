@@ -272,3 +272,75 @@ body {
     }
 
 }
+
+.quiz-container {
+    max-width: 800px;
+    margin: 60px auto;
+    text-align: center;
+}
+
+.quiz-container h1 {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.quiz-descricao {
+    font-size: 18px;
+    margin-bottom: 35px;
+}
+
+.quiz-card {
+    background-color: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+.pergunta {
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+
+.opcoes {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.btn-resposta {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #198754;
+    border-radius: 10px;
+    background-color: white;
+    font-size: 17px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-resposta:hover {
+    background-color: #198754;
+    color: white;
+    transform: scale(1.02);
+}
+
+#mensagem-feedback {
+    margin-top: 25px;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 20px;
+}
+
+.acerto {
+    background-color: #d1e7dd;
+    color: #0f5132;
+}
+
+.erro {
+    background-color: #f8d7da;
+    color: #842029;
+}
+
+.oculto {
+    display: none;
+}
