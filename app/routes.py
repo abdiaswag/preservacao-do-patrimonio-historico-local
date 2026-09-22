@@ -1,10 +1,10 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, url_for, redirect, request
 from .models import Materia,db
 
 
 main = Blueprint("main", __name__)
 
-
+#Homepage route
 @main.route("/")
 def index():
 
@@ -18,6 +18,7 @@ def index():
     )
 
 
+#Rota dinâmica para exibir uma matéria específica com base no ID fornecido
 @main.route("/materia/<int:id>")
 def materia(id):
 
@@ -28,45 +29,79 @@ def materia(id):
         materia=materia
     )
 
-@main.route("/criar-materias")
-def criar_materias():
+# LISTAR MATÉRIAS
+@main.route("/materias")
+def listar_materias():
 
-    materia1 = Materia(
-        titulo="Base Aérea e Trampolim da Vitória",
-        categoria="Segunda Guerra Mundial",
-        imagem="base-aerea.jpg",
-        texto="Durante a Segunda Guerra Mundial, Parnamirim teve grande importância estratégica devido à sua localização."
+    materias = Materia.query.all()
+
+    return render_template(
+        "materias.html",
+        materias=materias
     )
 
-    materia2 = Materia(
-        titulo="Barreira do Inferno",
-        categoria="Ciência e Tecnologia",
-        imagem="barreira-inferno.jpg",
-        texto="O Centro de Lançamento da Barreira do Inferno foi criado em 1965 e possui grande importância para a história espacial brasileira."
+
+# CRIAR MATÉRIA
+@main.route("/materias/criar", methods=["GET", "POST"])
+def criar_materia():
+
+    if request.method == "POST":
+
+        titulo = request.form["titulo"]
+        categoria = request.form["categoria"]
+        imagem = request.form["imagem"]
+        texto = request.form["texto"]
+
+        nova_materia = Materia(
+            titulo=titulo,
+            categoria=categoria,
+            imagem=imagem,
+            texto=texto
+        )
+
+        db.session.add(nova_materia)
+        db.session.commit()
+
+        return redirect(url_for("main.listar_materias"))
+
+    return render_template("cadastrar_materia.html")
+
+
+# EDITAR MATÉRIA
+@main.route("/materia/<int:id>/editar", methods=["GET", "POST"])
+def editar_materia(id):
+
+    materia = Materia.query.get_or_404(id)
+
+    if request.method == "POST":
+
+        materia.titulo = request.form["titulo"]
+        materia.categoria = request.form["categoria"]
+        materia.imagem = request.form["imagem"]
+        materia.texto = request.form["texto"]
+
+        db.session.commit()
+
+        return redirect(url_for("main.listar_materias"))
+
+    return render_template(
+        "editar_materia.html",
+        materia=materia
     )
 
-    materia3 = Materia(
-        titulo="História de Parnamirim",
-        categoria="História Local",
-        imagem="parnamirim.webp",
-        texto="Parnamirim possui uma história marcada pela aviação, pelo desenvolvimento urbano e por importantes acontecimentos do Rio Grande do Norte."
-    )
 
-    db.session.add(materia1)
-    db.session.add(materia2)
-    db.session.add(materia3)
+# EXCLUIR MATÉRIA
+@main.route("/materia/<int:id>/excluir", methods=["POST"])
+def excluir_materia(id):
 
+    materia = Materia.query.get_or_404(id)
+
+    db.session.delete(materia)
     db.session.commit()
 
-    return "Matérias cadastradas com sucesso!"
+    return redirect(url_for("main.listar_materias"))
 
-@main.route("/limpar")
-def limpar():
-    Materia.query.delete()
-    db.session.commit()
-
-    return "Todas as matérias foram deletadas!"
-
+#Rota para a página de quiz
 @main.route("/quiz")
 def quiz():
     return render_template("quiz.html")
