@@ -1,5 +1,7 @@
-from flask import Flask
+import os
+from flask import Flask, app
 from .models import db
+
 
 
 def create_app():
@@ -8,7 +10,7 @@ def create_app():
 
     app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///banco.db"
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
-
+    app.config["UPLOAD_FOLDER"] = os.path.join(app.static_folder,"uploads")
     db.init_app(app)
 
     from .routes import main

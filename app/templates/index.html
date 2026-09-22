@@ -9,8 +9,6 @@
 
 </head>
 <body>
-
-  <!-- Cabecalho do Site -->
   <header class="cabecalho">
 
     <nav class="navbar navbar-expand-lg navbarp">
@@ -87,7 +85,6 @@
 
   <main class="container-b">
     
-    <!-- Secao de Patrimonios Historicos -->
   <section class="secao" id="patrimonios">
 
     <div class="titulo-secao">
@@ -106,10 +103,12 @@
 
                 <article class="card-monumento">
 
-                    <img
-                        src="{{ url_for('static', filename='imagens/' + materia.imagem) }}"
-                        alt="{{ materia.titulo }}"
-                    >
+                    {% if materia.imagem %}
+                            <img
+                                src="{{ url_for('static', filename='uploads/' + materia.imagem) }}"
+                                alt="{{ materia.titulo }}"
+                            >
+                        {% endif %}
 
                     <div class="card-conteudo">
 

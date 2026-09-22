@@ -1,10 +1,11 @@
-from flask import Blueprint, render_template, url_for, redirect, request
+from flask import Blueprint, current_app, render_template, url_for, redirect, request
 from .models import Materia,db
+import os
 
 
 main = Blueprint("main", __name__)
 
-#Homepage route
+#Homepage 
 @main.route("/")
 def index():
 
@@ -18,7 +19,7 @@ def index():
     )
 
 
-#Rota dinâmica para exibir uma matéria específica com base no ID fornecido
+#Rota dinâmica
 @main.route("/materia/<int:id>")
 def materia(id):
 
@@ -29,7 +30,7 @@ def materia(id):
         materia=materia
     )
 
-# LISTAR MATÉRIAS
+# LISTA
 @main.route("/materias")
 def listar_materias():
 
@@ -41,7 +42,7 @@ def listar_materias():
     )
 
 
-# CRIAR MATÉRIA
+# CRIAR 
 @main.route("/materias/criar", methods=["GET", "POST"])
 def criar_materia():
 
@@ -49,13 +50,25 @@ def criar_materia():
 
         titulo = request.form["titulo"]
         categoria = request.form["categoria"]
-        imagem = request.form["imagem"]
+        imagem = request.files.get("imagem")
         texto = request.form["texto"]
+
+        nome_imagem = None
+
+        if imagem and imagem.filename:
+            nome_imagem = imagem.filename
+
+            caminho = os.path.join(
+                current_app.config["UPLOAD_FOLDER"],
+                nome_imagem
+            )
+
+            imagem.save(caminho)
 
         nova_materia = Materia(
             titulo=titulo,
             categoria=categoria,
-            imagem=imagem,
+            imagem=nome_imagem,
             texto=texto
         )
 
@@ -67,7 +80,7 @@ def criar_materia():
     return render_template("cadastrar_materia.html")
 
 
-# EDITAR MATÉRIA
+# EDITAR 
 @main.route("/materia/<int:id>/editar", methods=["GET", "POST"])
 def editar_materia(id):
 
@@ -90,7 +103,7 @@ def editar_materia(id):
     )
 
 
-# EXCLUIR MATÉRIA
+# EXCLUIR 
 @main.route("/materia/<int:id>/excluir", methods=["POST"])
 def excluir_materia(id):
 
@@ -101,7 +114,7 @@ def excluir_materia(id):
 
     return redirect(url_for("main.listar_materias"))
 
-#Rota para a página de quiz
+#Rota quiz
 @main.route("/quiz")
 def quiz():
     return render_template("quiz.html")

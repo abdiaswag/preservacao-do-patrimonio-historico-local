@@ -21,51 +21,51 @@
 <body>
 
     <nav class="navbar navbar-expand-lg navbarp">
+      <div class="container">
 
-        <div class="container">
+        <a class="navbar-brand logo-navbar" href="/">
+          Potibala's
+        </a>
 
-            <a class="navbar-brand logo-navbar" href="/">
-                Potibala's
-            </a>
+        <button 
+          class="navbar-toggler" 
+          type="button" 
+          data-bs-toggle="collapse" 
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" 
+          aria-expanded="false" 
+          aria-label="Abrir menu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-            <button 
-                class="navbar-toggler"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent">
+        <div class="collapse navbar-collapse ms-auto" id="navbarSupportedContent">
 
-                <span class="navbar-toggler-icon"></span>
+          <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
 
-            </button>
+            <li class="nav-item">
+              <a class="nav-link active" href="/">Início</a>
+            </li>
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <li class="nav-item">
+              <a class="nav-link" href="#patrimonios">Patrimônios</a>
+            </li>
 
-                <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/quiz">Quiz</a>
+            </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="/">
-                            Início
-                        </a>
-                    </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/materias">Matérias</a>
+            </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link active" href="/materias">
-                            Matérias
-                        </a>
-                    </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#sobre">Sobre o projeto</a>
+            </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="/quiz">
-                            Quiz
-                        </a>
-                    </li>
-
-                </ul>
-
-            </div>
+          </ul>
 
         </div>
-
+      </div>
     </nav>
 
 
@@ -95,13 +95,10 @@
                     <div class="card h-100">
 
                         {% if materia.imagem %}
-
-                            <img 
-                                src="{{ url_for('static', filename='imagens/' + materia.imagem) }}"
-                                class="card-img-top"
+                            <img
+                                src="{{ url_for('static', filename='uploads/' + materia.imagem) }}"
                                 alt="{{ materia.titulo }}"
                             >
-
                         {% endif %}
 
 

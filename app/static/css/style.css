@@ -10,9 +10,7 @@ body {
 }
 
 
-/* =========================
-   NAVBAR
-========================= */
+
 
 .navbarp {
     background-color: #1f2a24;
@@ -40,9 +38,7 @@ body {
 }
 
 
-/* =========================
-   CABEÇALHO
-========================= */
+
 
 .hero {
     min-height: 350px;
@@ -90,9 +86,6 @@ body {
 }
 
 
-/* =========================
-   CONTEÚDO
-========================= */
 
 .container-b {
     max-width: 1200px;
@@ -127,9 +120,6 @@ body {
 }
 
 
-/* =========================
-   CARDS
-========================= */
 
 .card-monumento {
     height: 100%;
@@ -157,7 +147,6 @@ body {
 }
 
 
-/* CONTEÚDO */
 
 .card-conteudo {
     padding: 20px;
@@ -183,7 +172,6 @@ body {
 }
 
 
-/* BOTÃO */
 
 .btn-card {
     display: inline-block;
@@ -202,9 +190,7 @@ body {
 }
 
 
-/* =========================
-   QUIZ
-========================= */
+
 
 .caixa-quiz {
     max-width: 800px;
@@ -249,9 +235,6 @@ body {
 }
 
 
-/* =========================
-   RESPONSIVIDADE
-========================= */
 
 @media (max-width: 768px) {
 

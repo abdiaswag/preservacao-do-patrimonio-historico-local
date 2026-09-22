@@ -51,11 +51,12 @@
                 {{ materia.titulo }}
             </h1>
 
-            <img
-                src="{{ url_for('static', filename='imagens/' + materia.imagem) }}"
-                alt="{{ materia.titulo }}"
-                class="imagem-materia"
-            >
+            {% if materia.imagem %}
+                <img
+                    src="{{ url_for('static', filename='uploads/' + materia.imagem) }}"
+                    alt="{{ materia.titulo }}"
+                >
+            {% endif %}
 
             <div class="texto-materia">
 
@@ -68,6 +69,9 @@
         </div>
 
     </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
 
 </body>
 
