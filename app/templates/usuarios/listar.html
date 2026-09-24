@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Preservação do Patrimônio Histórico Local - PI Parnamirim</title>
-  <link rel="stylesheet" href="../static/css/style.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar usuário - Potibala's</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/style.css">
 </head>
-<body>
-  <header class="cabecalho">
 
     <nav class="navbar navbar-expand-lg navbarp">
       <div class="container">
@@ -38,15 +36,11 @@
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="/#patrimonios">Patrimônios</a>
+              <a class="nav-link" href="#patrimonios">Patrimônios</a>
             </li>
 
             <li class="nav-item">
               <a class="nav-link" href="/quiz">Quiz</a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link" href="/materias">Matérias</a>
             </li>
 
             <li class="nav-item">
@@ -63,49 +57,60 @@
                 <a href="{{ url_for('main.criar_usuario') }}" class="nav-link active">Criar Conta</a>
             {% endif %}
 
+
           </ul>
 
         </div>
       </div>
     </nav>
 
-  </header>  
+    <table class="table">
 
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>E-mail</th>
+                <th>Tipo</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
 
-    <main class="pagina-materia">
+        <tbody>
 
-        <div class="container">
+            {% for usuario in usuarios %}
 
-            <span class="categoria">
-                {{ materia.categoria }}
-            </span>
+            <tr>
 
-            <h1 class="titulo-materia">
-                {{ materia.titulo }}
-            </h1>
+                <td>{{ usuario.nome }}</td>
 
-            {% if materia.imagem %}
-                <img
-                    src="{{ url_for('static', filename='uploads/' + materia.imagem) }}"
-                    alt="{{ materia.titulo }}"
-                >
-            {% endif %}
+                <td>{{ usuario.email }}</td>
 
-            <div class="texto-materia">
+                <td>{{ usuario.tipo }}</td>
 
-                <p>
-                    {{ materia.texto }}
-                </p>
+                <td>
 
-            </div>
+                    <a
+                        href="{{ url_for('main.editar_usuario', id=usuario.id) }}"
+                        class="btn btn-warning">
+                        Editar
+                    </a>
 
-        </div>
+                    <a
+                        href="{{ url_for('main.excluir_usuario', id=usuario.id) }}"
+                        class="btn btn-danger">
+                        Excluir
+                    </a>
 
-    </main>
+                </td>
+
+            </tr>
+
+            {% endfor %}
+
+        </tbody>
+
+    </table>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-
-
 </body>
-
 </html>

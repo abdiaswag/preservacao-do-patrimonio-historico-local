@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Preservação do Patrimônio Histórico Local</title>
+  <title>Preservação do Patrimônio Histórico Local - PI Parnamirim</title>
   <link rel="stylesheet" href="../static/css/style.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 
@@ -46,6 +46,10 @@
             </li>
 
             <li class="nav-item">
+              <a class="nav-link" href="/materias">Matérias</a>
+            </li>
+
+            <li class="nav-item">
               <a class="nav-link" href="#sobre">Sobre o projeto</a>
             </li>
 
@@ -65,61 +69,9 @@
       </div>
     </nav>
 
-    <div class="hero">
+  </header>  
 
-      <div class="hero-conteudo">
-
-        <span class="hero-tag">PATRIMÔNIO • HISTÓRIA • CULTURA</span>
-
-        <h1>
-          Preservação do Patrimônio
-          <br>
-          Histórico de Parnamirim
-        </h1>
-
-        <p>
-          Conheça a história, os patrimônios e a importância cultural
-          de Parnamirim para o Rio Grande do Norte.
-        </p>
-
-      </div>
-
-    </div>
-
-  </header>
-
-
-    <main class="container">
-
-        <div class="quiz-container">
-
-            <h1>Quiz sobre Parnamirim</h1>
-
-            <p class="quiz-descricao">
-                Teste seus conhecimentos sobre a história e o patrimônio
-                de Parnamirim!
-            </p>
-
-            <div class="quiz-card">
-
-                <div class="pergunta"></div>
-
-                <div class="opcoes"></div>
-
-                <div id="mensagem-feedback" class="oculto"></div>
-
-            </div>
-
-        </div>
-
-    </main>
-
-
-    <script src="../static/scripts.js"></script>
-
-    <script 
-        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
-    </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 
 </body>
 </html>

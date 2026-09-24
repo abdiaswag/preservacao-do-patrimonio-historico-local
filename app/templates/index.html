@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Preservação do Patrimônio Histórico Local - PI Parnamirim</title>
+  <title>Preservação do Patrimônio Histórico Local</title>
   <link rel="stylesheet" href="../static/css/style.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 
@@ -34,11 +34,11 @@
           <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
 
             <li class="nav-item">
-              <a class="nav-link active" href="/">Início</a>
+              <a class="nav-link" href="/">Início</a>
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="#patrimonios">Patrimônios</a>
+              <a class="nav-link" href="/#patrimonios">Patrimônios</a>
             </li>
 
             <li class="nav-item">
@@ -46,12 +46,18 @@
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="/materias">Matérias</a>
-            </li>
-
-            <li class="nav-item">
               <a class="nav-link" href="#sobre">Sobre o projeto</a>
             </li>
+
+            {% if session.get("usuario_id") %}
+                <a href="{{ url_for('main.area_usuario') }}" class="nav-link active">Minha conta</a>
+            {% else %}
+                <a href="{{ url_for('main.login') }}" class="nav-link active">Entrar</a>
+            {% endif %}
+
+            {% if not session.get("usuario_id") %}
+                <a href="{{ url_for('main.criar_usuario') }}" class="nav-link active">Criar Conta</a>
+            {% endif %}
 
           </ul>
 

@@ -39,7 +39,7 @@
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="#patrimonios">Patrimônios</a>
+              <a class="nav-link" href="/#patrimonios">Patrimônios</a>
             </li>
 
             <li class="nav-item">
@@ -72,7 +72,7 @@
 
             <form 
                 action="{{ url_for('main.editar_materia', id=materia.id) }}"
-                method="POST">
+                method="POST" enctype="multipart/form-data">
 
 
                 <div class="mb-3">
@@ -98,13 +98,11 @@
                         Categoria
                     </label>
 
-                    <input 
-                        type="text"
-                        name="categoria"
-                        class="form-control"
-                        value="{{ materia.categoria }}"
-                        required
-                    >
+                    <select name="categoria" class="form-select" required>
+                      <option value="">Selecione uma categoria</option>
+                      <option value="História">História</option>
+                      <option value="Cultura">Cultura</option>
+                  </select>
 
                 </div>
 
